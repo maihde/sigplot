@@ -3274,6 +3274,16 @@
             }
         },
 
+        addColorMaps: function(colormaps) {
+            colormaps.forEach(function(cmap) {
+                if (cmap.hasOwnProperty("name")) {
+                    m.Mc.colormap.push(cmap);
+                }
+
+            });
+
+        },
+
         _refresh: function() {
             var Mx = this._Mx;
             var Gx = this._Gx;
@@ -5668,7 +5678,7 @@
 
         var REFRESH_ITEM = {
             text: "Refresh" // no handler, just let the finalizer deal with
-                // it
+            // it
         };
 
         var KEYPRESSINFO_ITEM = {
@@ -6612,7 +6622,7 @@
         }
         mx.set_font(Mx, Math.min(7, Mx.width / 64));
 
-        Gx.ncolors = o.ncolors === undefined ? 16 : o.ncolors;
+        Gx.ncolors = o.ncolors === undefined ? 500 : o.ncolors;
         Gx.cmap = null;
         if (o.cmap) {
             Gx.cmap = o.cmap;
